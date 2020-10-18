@@ -1,3 +1,5 @@
-class VinylController < Sinatra::Base
+require './config/environment'
+
+class VinylController < ApplicationController
 
 end
