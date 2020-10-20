@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vinyl Collection</title>
+    </head>
+    <body>
+        <h1>Here is your Vinyl Collection</h1>
+
+        <ul><%= @vinyls.each do |vinyl| %>
+            <li><%= vinyl.artist_name.sort {|a, b| a <=> b} %></li>
+        </ul>    
+    </body>
+</html>
