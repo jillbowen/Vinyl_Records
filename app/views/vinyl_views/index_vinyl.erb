@@ -7,7 +7,9 @@
         <h1>Here is your Vinyl Collection</h1>
 
         <ul><%= @vinyls.each do |vinyl| %>
-            <li><%= vinyl.artist_name.sort {|a, b| a <=> b} %></li>
-        </ul>    
+            <li><%= vinyl %></li>
+        </ul>
+        
+        <p><a href="/create_vinyl">Add another record to your collection.</a></p>
     </body>
 </html>

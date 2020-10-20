@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Vinyl</title>
+    </head>
+    <body>
+        <h1>Add some vinyl to your collection.</h1>
+            <p>
+                <form action="/create_vinyl" method="POST">
+                    <label for="album name">Album Name:</label>
+                    <input type="text" id="album_name" name="album_name" required><br></br>
+
+                    <label for="artist_name">Artist Name:</label>
+                    <input type="text" id="artist_name" name="artist_name" required><br></br>
+                    
+                    <p>What condition is it in?</p>
+                    <input type="radio" id="1" name="condition">
+                    <label for="condition1">1 (bad)</label>
+                    <input type="radio" id="2" name="condition">
+                    <label for="condition2">2</label>
+                    <input type="radio" id="3" name="condition">
+                    <label for="condition3">3 (fair)</label>
+                    <input type="radio" id="4" name="condition">
+                    <label for="condition4">4</label>
+                    <input type="radio" id="5" name="condition">
+                    <label for="condition2">5 (perfect)</label>
+
+                    <button type="submit">Add this Vinyl to my collection</button><br></br>
+                </form>
+    </body>
+</html>
