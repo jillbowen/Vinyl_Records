@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201018184843) do
+ActiveRecord::Schema.define(version: 20201021194309) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20201018184843) do
     t.string  "artist_name"
     t.integer "vinyl_condition"
     t.integer "total_vinyl"
+    t.integer "user_id"
   end
 
 end

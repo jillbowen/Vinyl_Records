@@ -4,7 +4,7 @@ class UserController < ApplicationController
    
     get "/signup" do
         if logged_in?
-            redirect "/vinyl_views/show_vinyl" #fix this?
+            redirect "/vinyl" 
         else
             @user = User.create
             erb :"user_views/user_signup"
@@ -16,7 +16,7 @@ class UserController < ApplicationController
     
         if @user.save
           session[:user_id] = @user.id
-          redirect "/vinyl_views/index_vinyl"
+          redirect "/vinyl"
         else
           erb :"user_views/user_signup"
         end
@@ -31,7 +31,7 @@ class UserController < ApplicationController
 
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
-            redirect "/vinyl_views/show_vinyl" #fix this?
+            redirect "/vinyl" 
         else
             #add error message here if time!
             redirect '/'

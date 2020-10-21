@@ -6,7 +6,7 @@
     <body>
         <h1>Add some vinyl to your collection.</h1>
             <p>
-                <form action="/create_vinyl" method="POST">
+                <form action="/vinyl" method="POST">
                     <label for="album name">Album Name:</label>
                     <input type="text" id="album_name" name="album_name" required><br></br>
 
@@ -14,16 +14,16 @@
                     <input type="text" id="artist_name" name="artist_name" required><br></br>
                     
                     <p>What condition is it in?</p>
-                    <input type="radio" id="1" name="condition">
-                    <label for="condition1">1 (bad)</label>
-                    <input type="radio" id="2" name="condition">
-                    <label for="condition2">2</label>
-                    <input type="radio" id="3" name="condition">
-                    <label for="condition3">3 (fair)</label>
-                    <input type="radio" id="4" name="condition">
-                    <label for="condition4">4</label>
-                    <input type="radio" id="5" name="condition">
-                    <label for="condition2">5 (perfect)</label>
+                    <input type="radio" id="1" name="vinyl_condition" value="1">
+                    <label for="condition1">1 (bad)</label><br></br>
+                    <input type="radio" id="2" name="vinyl_condition" value="2">
+                    <label for="condition2">2</label><br></br>
+                    <input type="radio" id="3" name="vinyl_condition" value="3">
+                    <label for="condition3">3 (fair)</label><br></br>
+                    <input type="radio" id="4" name="vinyl_condition" value="4">
+                    <label for="condition4">4</label><br></br>
+                    <input type="radio" id="5" name="vinyl_condition" value="5">
+                    <label for="condition2">5 (perfect)</label><br></br>
 
                     <button type="submit">Add this Vinyl to my collection</button><br></br>
                 </form>

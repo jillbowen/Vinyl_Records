@@ -4,11 +4,12 @@
         <title>Vinyl Collection</title>
     </head>
     <body>
-        <h1>#name of album here
-        </h1>
+        <h1><%= @vinyl.album_name %></h1>
+        <h2>By: <%= @vinyl.artist_name %></h2>
+        <p>Current Condition: <%= @vinyl.vinyl_condition %></p>
 
         <p><button type="submit"><a href="/edit_vinyl">Edit Record</a></button></p>
-        #add delete button here
-        <button type="submit"><a href="/logout">Log Out</a></button><br></br>
+        
+        <button type="submit"><a href="/vinyl">Back to My Collection</a></button><br></br>
     </body>
 </html>
