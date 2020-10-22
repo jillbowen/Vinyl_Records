@@ -8,8 +8,15 @@
         <h2>By: <%= @vinyl.artist_name %></h2>
         <p>Current Condition: <%= @vinyl.vinyl_condition %></p>
 
-        <p><button type="submit"><a href="/edit_vinyl">Edit Record</a></button></p>
+        <div class="btn-group">
+            <button type="submit"><a href="/vinyl/<%= @vinyl.id %>/edit">Edit Record</a></button>
         
-        <button type="submit"><a href="/vinyl">Back to My Collection</a></button><br></br>
+            <button type="submit"><a href="/vinyl">Back to My Collection</a></button>
+        </div><br></br>
+        
+        <form method="POST" action="/vinyl/<%= @vinyl.id %>">
+            <input id="hidden" type="hidden" name="_method" value="delete">
+            <button type="submit">Delete Album</button>
+        </form>
     </body>
 </html>

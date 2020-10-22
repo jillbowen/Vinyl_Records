@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit <%= @vinyl.album_name %></title>
+    </head>
+    <body>
+        <h1>Edit <%= @vinyl.album_name %></h1>
+            <p>
+                <form action="/vinyl/<%= @vinyl.id %>" method="POST">
+                <input id="hidden" type="hidden" name="_method" value="patch">
+                    <label for="album name">Edit Album Name:</label>
+                    <input type="text" id="album_name" name="album_name" value="<%= @vinyl.album_name %>" required><br></br>
+
+                    <label for="artist_name">Edit Artist Name:</label>
+                    <input type="text" id="artist_name" name="artist_name" value="<%= @vinyl.artist_name %>" required><br></br>
+                    
+                    <p>What condition is it in?</p>
+                    <input type="radio" id="1" name="vinyl_condition" value="1" <%='checked' if @vinyl.vinyl_condition == 1 %>>
+                    <label for="condition1">1 (bad)</label><br></br>
+                    <input type="radio" id="2" name="vinyl_condition" value="2" <%='checked' if @vinyl.vinyl_condition == 2 %>>
+                    <label for="condition2">2</label><br></br>
+                    <input type="radio" id="3" name="vinyl_condition" value="3" <%='checked' if @vinyl.vinyl_condition == 3 %>>
+                    <label for="condition3">3 (fair)</label><br></br>
+                    <input type="radio" id="4" name="vinyl_condition" value="4" <%='checked' if @vinyl.vinyl_condition == 4 %>>
+                    <label for="condition4">4</label><br></br>
+                    <input type="radio" id="5" name="vinyl_condition" value="5" <%='checked' if @vinyl.vinyl_condition == 5 %>>
+                    <label for="condition2">5 (perfect)</label><br></br>
+
+                    <button type="submit">Update</button><br></br>
+                </form>
+    </body>
+</html>

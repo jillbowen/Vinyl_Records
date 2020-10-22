@@ -5,6 +5,7 @@ class VinylController < ApplicationController
     get "/vinyl" do
         if logged_in?
             @vinyls = current_user.vinyl
+            @vinyls = @vinyls.sort_by {|v| [v.artist_name, v.album_name]}
             erb :"vinyl_views/index_vinyl"
         else
             redirect "/login"
@@ -22,7 +23,7 @@ class VinylController < ApplicationController
 
     post "/vinyl" do
         @vinyl = Vinyl.create(album_name: params[:album_name], artist_name: params[:artist_name], vinyl_condition: params[:vinyl_condition], user: current_user)
-        redirect "/vinyl"
+        redirect "/vinyl/#{@vinyl.id}"
     end
 
     get "/vinyl/:id" do
@@ -38,4 +39,26 @@ class VinylController < ApplicationController
         end
     end
 
+    get "/vinyl/:id/edit" do
+        @vinyl = current_user.vinyl.find_by(id: params[:id])
+            if @vinyl
+                erb :"vinyl_views/edit_vinyl"
+            else
+                redirect "/vinyl"
+            end
+    end
+
+    patch "/vinyl/:id" do
+        @vinyl = current_user.vinyl.find_by(id: params[:id])
+        @vinyl.album_name = params[:album_name]
+        @vinyl.artist_name = params[:artist_name]
+        @vinyl.vinyl_condition = params[:vinyl_condition]
+        @vinyl.save
+        redirect "/vinyl/#{@vinyl.id}"
+    end
+
+    delete "/vinyl/:id" do
+        Vinyl.destroy(params[:id])
+        redirect "/vinyl"
+    end
 end

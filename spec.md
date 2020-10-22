@@ -13,7 +13,8 @@ Specs:
     Vinyl belongs_to a user (macro in model)
 - [X] Include user accounts with unique login attribute (username or email):
     Username and email uniqueness is validated using the validates ruby method.
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+- [X] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying:
+    A user can add new Vinyl to their collection, see their list of vinyl and individual records, edit existing records, and delete records.
 - [X] Ensure that users can't modify content created by other users
     Enabled Sinatra Sessions
 - [X] Include user input validations
