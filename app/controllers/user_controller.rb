@@ -33,7 +33,6 @@ class UserController < ApplicationController
             session[:user_id] = @user.id 
             redirect "/vinyl" 
         else
-            #add error message here if time!
             redirect '/'
         end
     end
