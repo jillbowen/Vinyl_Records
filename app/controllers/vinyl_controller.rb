@@ -13,29 +13,27 @@ class VinylController < ApplicationController
     end
     
     get "/vinyl/new" do
-        if logged_in?
+        redirect_user
             @vinyl = current_user.vinyl
             erb :"/vinyl_views/create_vinyl"
-        else
-            redirect "/login"
-        end
     end
 
     post "/vinyl" do
-        @vinyl = Vinyl.create(album_name: params[:album_name], artist_name: params[:artist_name], vinyl_condition: params[:vinyl_condition], user: current_user)
-        redirect "/vinyl/#{@vinyl.id}"
+        @vinyl = current_user.vinyl.build(album_name: params[:album_name], artist_name: params[:artist_name], vinyl_condition: params[:vinyl_condition])
+        if @vinyl.save
+            redirect "/vinyl/#{@vinyl.id}"
+        else 
+            redirect "/vinyl/new"
+        end
     end
 
     get "/vinyl/:id" do
-        @vinyl = Vinyl.find_by_id(params[:id])
-        if logged_in?
+        redirect_user
             if @vinyl = current_user.vinyl.find_by(id: params[:id])
                 erb :"vinyl_views/show_vinyl"
             else
                 redirect '/'
             end
-        else
-            redirect "/login"
         end
     end
 
@@ -58,7 +56,9 @@ class VinylController < ApplicationController
     end
 
     delete "/vinyl/:id" do
-        Vinyl.destroy(params[:id])
+        if @vinyl = current_user.vinyl.find_by(id: params[:id])
+            @vinyl.destroy
+        end
         redirect "/vinyl"
     end
 end
