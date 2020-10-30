@@ -17,9 +17,16 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!current_user
     end
+
+    def redirect_user
+      if !logged_in?
+        redirect "/login"
+      end
+    end
   end
 
   get "/" do
     erb :index, :layout => :layout
   end
+
 end
