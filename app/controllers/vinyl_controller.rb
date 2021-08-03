@@ -34,7 +34,6 @@ class VinylController < ApplicationController
             else
                 redirect '/'
             end
-        end
     end
 
     get "/vinyl/:id/edit" do
