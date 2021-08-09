@@ -12,13 +12,13 @@
             </ul>
         </br></br>
     
-        <h2>Here is your Vinyl Collection, <%= current_user.username %>!</h2><br></br>
+        <h2>Here is your Vinyl Collection, <%= current_user.username %>!</h2></br>
     
         <ul><% @vinyls.each do |vinyl| %>
              <li><a href="/vinyl/<%= vinyl.id%>"><%= vinyl.album_name %></a> - <%= vinyl.artist_name %></li><br></br>
         </ul>
         <% end %><br></br>
-        <h2></h2>
+        <h2></h2></br>
         <p><a href="/vinyl/new">Add a record to your collection.</a></p>
         <p><a href="/user/<%= current_user.username %>/edit">Edit your profile info</a></p>
         <button type="submit"><a href="/logout">Log Out</a></button><br></br>
