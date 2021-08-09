@@ -4,15 +4,21 @@
         <title>Profile: Vinyl Records</title>
     </head>
     <body>
-        <h1>Top 3 Favorite Bands Right Now:</h1>
-            <ul><%= current_user.favorite_bands %></ul>
+        <h2>Top 3 Favorite Bands Right Now:</h2>
+            <ul>
+                <li><%= current_user.favorite_band_1 %></li></br>
+                <li><%= current_user.favorite_band_2 %></li></br>
+                <li><%= current_user.favorite_band_3 %></li></br>    
+            </ul>
+        </br></br>
     
-        <h1>Here is your Vinyl Collection, <%= current_user.username %>!</h1><br></br>
+        <h2>Here is your Vinyl Collection, <%= current_user.username %>!</h2><br></br>
     
         <ul><% @vinyls.each do |vinyl| %>
              <li><a href="/vinyl/<%= vinyl.id%>"><%= vinyl.album_name %></a> - <%= vinyl.artist_name %></li><br></br>
         </ul>
         <% end %><br></br>
+        <h2></h2>
         <p><a href="/vinyl/new">Add a record to your collection.</a></p>
         <p><a href="/user/<%= current_user.username %>/edit">Edit your profile info</a></p>
         <button type="submit"><a href="/logout">Log Out</a></button><br></br>
