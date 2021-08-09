@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210808225116) do
+ActiveRecord::Schema.define(version: 20210809002757) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.string "favorite_bands"
+    t.string "favorite_band_1"
+    t.string "favorite_band_2"
+    t.string "favorite_band_3"
   end
 
   create_table "vinyls", force: :cascade do |t|

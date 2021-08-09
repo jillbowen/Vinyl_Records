@@ -1,5 +1,4 @@
 require './config/environment'
-
 class UserController < ApplicationController
    
     get "/signup" do
@@ -12,7 +11,14 @@ class UserController < ApplicationController
     end
 
     post "/signup" do
-        @user = User.create(username: params[:username], email: params[:email], password: params[:password], user_id: params[:user_id], favorite_bands: params[:favorite_bands])
+        @user = User.create(
+            username: params[:username], 
+            email: params[:email], 
+            password: params[:password], 
+            user_id: params[:user_id], 
+            favorite_band_1: params[:favorite_band_1], 
+            favorite_band_2: params[:favorite_band_2],
+            favorite_band_3: params[:favorite_band_3])
     
         if @user.save
           session[:user_id] = @user.id
@@ -50,7 +56,9 @@ class UserController < ApplicationController
         @current_user = User.find_by(username: params[:username])
         @current_user.username = params[:username]
         @current_user.password = params[:password]
-        @current_user.favorite_bands = params[:favorite_bands]
+        @current_user.favorite_band_1 = params[:favorite_band_1]
+        @current_user.favorite_band_2 = params[:favorite_band_2]
+        @current_user.favorite_band_3 = params[:favorite_band_3]
         @current_user.save
         redirect "/vinyl"
     end
