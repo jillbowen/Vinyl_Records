@@ -12,7 +12,7 @@ class UserController < ApplicationController
     end
 
     post "/signup" do
-        @user = User.create(username: params[:username], email: params[:email], password: params[:password], favorite_bands: params[:favorite_bands])
+        @user = User.create(username: params[:username], email: params[:email], password: params[:password], user_id: params[:user_id], favorite_bands: params[:favorite_bands])
     
         if @user.save
           session[:user_id] = @user.id
@@ -35,6 +35,24 @@ class UserController < ApplicationController
         else
             redirect '/'
         end
+    end
+
+    get "/user/:username/edit" do
+        @current_user = User.find_by(id: session[:user_id]) if session[:user_id]
+            if @current_user
+                erb :"user_views/edit_user"
+            else
+                redirect "/vinyl"
+            end
+    end
+
+    patch "/user/:username" do
+        @current_user = User.find_by(username: params[:username])
+        @current_user.username = params[:username]
+        @current_user.password = params[:password]
+        @current_user.favorite_bands = params[:favorite_bands]
+        @current_user.save
+        redirect "/vinyl"
     end
 
     get "/logout" do

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Vinyl Collection</title>
+        <title>Profile: Vinyl Records</title>
     </head>
     <body>
-        <h1>Here is your Vinyl Collection</h1><br></br>
+        <h1>Top 3 Favorite Bands Right Now:</h1>
+            <ul><%= current_user.favorite_bands %></ul>
+    
+        <h1>Here is your Vinyl Collection, <%= current_user.username %>!</h1><br></br>
     
         <ul><% @vinyls.each do |vinyl| %>
              <li><a href="/vinyl/<%= vinyl.id%>"><%= vinyl.album_name %></a> - <%= vinyl.artist_name %></li><br></br>
         </ul>
         <% end %><br></br>
         <p><a href="/vinyl/new">Add a record to your collection.</a></p>
+        <p><a href="/user/<%= current_user.username %>/edit">Edit your profile info</a></p>
         <button type="submit"><a href="/logout">Log Out</a></button><br></br>
     </body>
 </html>

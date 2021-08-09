@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit <%= @current_user.username %></title>
+    </head>
+    <body>
+        <h1>Edit Your Profile</h1>
+            <p>
+                <form action="/user/<%= current_user.username %>" method="POST">
+                <input id="hidden" type="hidden" name="_method" value="patch">
+                    <label for="email">Edit your email:</label>
+                    <input type="email" id="email" name="email" value="<%= current_user.email %>"></br></br>
+                    
+                    <label for="username">Edit Your Username:</label>
+                    <input type="text" id="username" name="username" value="<%= current_user.username %>"></br></br>
+                    
+                    <label for="password">Create a Password:</label>
+                    <input type="password" id="password" name="password" value="<%= current_user.password %>"></br></br>
+
+                    <label for="favorite_bands">Update Your Current 3 Favorite Bands:</label></br>
+                    <input type="text" id="favorite_bands" name="favorite_bands" value="<%= current_user.favorite_bands %>"></br></br>
+                    <input type="text" id="favorite_bands" name="favorite_bands"></br></br>
+                    <input type="text" id="favorite_bands" name="favorite_bands"></br></br>
+
+                    <button type="submit">Update</button><br></br>
+                </form>
+    </body>
+</html>
