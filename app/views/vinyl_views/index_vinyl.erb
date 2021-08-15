@@ -6,9 +6,9 @@
     <body>
         <h2>Top 3 Favorite Bands Right Now:</h2>
             <ul>
-                <li><%= current_user.favorite_band_1 %></li></br>
-                <li><%= current_user.favorite_band_2 %></li></br>
-                <li><%= current_user.favorite_band_3 %></li></br>    
+                <li><a href="https://www.google.com/search?q=<%= current_user.favorite_band_1 %>" target="_blank"><%= current_user.favorite_band_1 %></a></li></br>
+                <li><a href="https://www.google.com/search?q=<%= current_user.favorite_band_2 %>" target="_blank"><%= current_user.favorite_band_2 %></a></li></br>
+                <li><a href="https://www.google.com/search?q=<%= current_user.favorite_band_3 %>" target="_blank"><%= current_user.favorite_band_3 %></a></li></br>    
             </ul>
         </br></br>
     
