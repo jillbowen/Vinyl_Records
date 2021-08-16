@@ -13,13 +13,13 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: rgb(8, 38, 48);
+    background-color: rgb(13, 51, 63);
     font-family: Sans-Serif;
     line-height: 18px;
   }
 
   .wrapper {
-    background: seashell;
+    background: lightgray;
     color: rgb(8, 38, 48);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -49,6 +49,18 @@
 
   p {
     margin-bottom: 18px;
+  }
+
+  a {
+    color:rgb(12, 25, 59);
+  }
+
+  a:visited {
+    color: darkslategray;
+  }
+
+  a:hover {
+    color: darkslateblue;
   }
 
   .main {
