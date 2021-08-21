@@ -23,7 +23,5 @@ ActiveRecord::Base.establish_connection(
 )
 end
 
-set :public_folder, File.join(APP_ROOT, "public")
-
 require './app/controllers/application_controller'
 require_all 'app'
