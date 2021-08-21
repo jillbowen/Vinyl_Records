@@ -21,8 +21,9 @@ ActiveRecord::Base.establish_connection(
   :database => db.path[1..-1],
   :encoding => 'utf8'
 )
-
 end
+
+set :public_folder, File.join(APP_ROOT, "public")
 
 require './app/controllers/application_controller'
 require_all 'app'
